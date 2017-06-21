@@ -22,6 +22,7 @@ class Img extends Base
 			$data = Db::table('img')->where('id',$id)->find();
 			cache('img_' . $id, $data, 24*3600);
 		}
+		//点击量
 		$click = cache('img_click_' . $id);
 		if(!$click){
 			$click = $data['click'];

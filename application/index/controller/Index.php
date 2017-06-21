@@ -3,6 +3,7 @@ namespace app\index\controller;
 
 use app\index\model\Cart;
 use app\index\model\Goods;
+use com\Wechat;
 use think\Controller;
 use think\Db;
 use think\Exception;
@@ -279,6 +280,7 @@ class Index extends Controller
         if(!$user = Session::get('user_1')){
             $this->login();
         }
+        
         //查询订单表信息
         $result = Db::name('Order')
             ->where(['member_id'=>$user['id'] , 'status'=>['>=',1]])
@@ -290,6 +292,48 @@ class Index extends Controller
         $this->assign('result',$result);
         return $this->fetch('myorder');
 
+    }
+
+    /**
+     * 测试用户网页授权
+     * 1.判断用户是否登录,如果没有登录,到微信服务器获取信息
+     */
+    public function auth()
+    {
+        $openid = Session::get('openid');
+        if (!$openid){
+            
+            $appid = config('appid');
+            $callback = urlencode(config('callback'));
+            $scope = config('scope');
+            //跳转到微信服务器获取code,微信服务器会返回信息到回调地址.
+            $url = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid='.$appid.'&redirect_uri='.$callback.'&response_type=code&scope='.$scope.'&state=STATE#wechat_redirect';
+
+            //保存当前地址
+            Session::set('url1',url());
+
+            $this->redirect($url);
+        }
+    }
+
+    //回调地址,获得code,
+    public function callback()
+    {
+        $data = input('get.');
+        $code = $data['code'];
+        $appid = config('appid');
+        $appsecret = config('appsecret');
+        //请求连接获取access_token,和openid
+        $url = 'https://api.weixin.qq.com/sns/oauth2/access_token?appid='.$appid.'&secret='.$appsecret.'&code='.$code.'&grant_type=authorization_code';
+
+        $curl = curl_init();
+        //设置网址
+        curl_setopt($curl,CURLOPT_URL,$url);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1 );
+        //获取到access_token,和openid
+        $data = curl_exec($curl);
+        curl_close($curl);
+        dump($data);
     }
 
 }

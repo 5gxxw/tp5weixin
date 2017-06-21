@@ -115,12 +115,15 @@ class Diymen extends Base{
 		];
 
 		$weObj = new \com\TpWechat($options);
+		//获取菜单
 		$menu = $weObj->getMenu();
 
 		$diymenModel = new DiymenModel;
 		$newmenu['button'] = [];
+		//一级菜单
 		$diymenData = $diymenModel->where('fid',0)->where('is_show',1)->limit(3)->order('sort desc')->select();
 		foreach ($diymenData as $key => $vo) {
+		    //二级菜单
 			$c = $diymenModel->where('fid',$vo['id'])->where('is_show',1)->limit(5)->order('sort desc')->select();
 			if($c){
 				$newmenu['button'][$key] = [
@@ -159,7 +162,7 @@ class Diymen extends Base{
 
 			}
 		}
-
+        //生成菜单
 		$result = $weObj->createMenu($newmenu);
 		if($result){
 			return $this->success('菜单生成成功');

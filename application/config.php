@@ -210,4 +210,7 @@ return [
 
     'site_url'=>'http://weixin.5gxxw.xyz',
     'app_url'=>'http://ionic.wxbuluo.com',
+
+    'callback' => 'index/index/callback',
+    'scope' => 'snsapi_base',
 ];
