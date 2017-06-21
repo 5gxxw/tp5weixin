@@ -1,0 +1,146 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="description" content="微分销系统" />
+    <meta name="keywords" content="微分销系统" />
+    <title>微分销系统_多享出品</title>
+    
+    <!-- 公共部分 -->
+    <link rel="stylesheet" type="text/css" href="__ROOT__/static/css/common.css" />
+	<link rel="stylesheet" type="text/css" href="__ROOT__/static/css/main.css" />
+	<link rel="stylesheet" type="text/css" href="__ROOT__/static/css/swiper-3.2.5.min.css" />
+	<link rel="stylesheet" type="text/css" href="__ROOT__/static/css/zyUpload.css" />
+	<link rel="styleSheet" type="text/css" href="__ROOT__/static/css/layer.css" id="layermcss">
+	
+    <script type="text/javascript" src="__ROOT__/static/js/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript" src="__ROOT__/static/js/swiper-3.2.5.min.js"></script>
+	<script type="text/javascript" src="__ROOT__/static/js/layer.js"></script>
+    <script type="text/javascript" src="__ROOT__/static/js/ectouch.js"></script>
+    <script type="text/javascript" src="__ROOT__/static/js/jquery-ui-1.10.1.custom.min.js "></script>
+    <script type="text/javascript" src="__ROOT__/static/js/jquery.ui.touch-punch.min.js "></script>
+    <script type="text/javascript" src="__ROOT__/static/js/jquery.infinite.js"></script>
+    <script type="text/javascript" src="__ROOT__/static/js/template.js"></script>
+	
+	<!-- 仅我的订单调用 -->
+	<link rel="stylesheet" type="text/css" href="__ROOT__/static/css/usercenter.css" />
+	<script type="text/javascript" src="__ROOT__/static/js/myOrder.js"></script>
+</head>
+
+<body class="">
+
+	<!-- 头部 -->
+	<header class="header-menu dis-box">
+    	<a href="javascript:history.go(-1);"><i class="iconfont">&#xe636;</i></a>
+        <h3>我的订单</h3>
+        <a href="{:url('index')}"><i class="iconfont">&#xe621;</i></a>
+    </header>
+
+    <!-- 主题内容 -->
+	<div class="main">
+
+		<!-- 订单状态导航 -->
+		<ul class="orderNav">
+			<li class="click">全部</li><li>待付款</li><li>待发货</li><li>待收货</li><li>待评价</li>
+		</ul>
+
+		<!--订单列表-->
+		<div class="switchPool">
+			<div class="itemBox show">
+				<ul class="itemUl">
+					{volist name="result" id="vo"}
+					<li>
+						<div class="orderNum">
+							<span class="num">订单编号：<em>{$vo.sn}</em></span>
+							<label class="state">
+								{switch name="$vo.status" }
+								{case value="1"}待付款{/case}
+								{case value="2"}待发货{/case}
+								{case value="3"}待收货{/case}
+								{case value="4"}待评价{/case}
+								{case value="5"}已完成{/case}
+								{/switch}
+							</label>
+						</div>
+						{volist name="vo.detail" id="detail"}
+						<a class="proDetail clearfix" href="27订单详情.html">
+							<dl>
+								<dt><img src="__ROOT__/static/images/{$detail.goods_logo}" alt="pro"></dt>
+								<dd class="nam">{$detail.goods_name}</dd>
+							</dl>
+							<span class="price">
+								<em class="currentPrice">¥<label>{$detail.price}</label></em>
+								<!--<em class="pastPrice">¥<label>14.00</label></em>-->
+								<em class="num">x<label>{$detail.num}</label></em>
+							</span>
+						</a>
+						{/volist}
+						<p class="totalInfo">合计：¥<font>{$vo.price}</font><label>（含运费<em></em>0.00）</label></p>
+
+						{switch name="vo.status" }
+							{case value="1"}
+								<!--待付款-->
+								<div class="btnBox">
+									<a class="payNow" href="#">立即支付</a>
+									<a class="details" href="27订单详情.html">订单详情</a>
+								</div>
+							{/case}
+							{case value="2"}
+								<!--待发货-->
+								<div class="btnBox">
+									<a class="payback" href="#">申请退款</a>
+									<a class="logistics" href="#">查看物流</a>
+								</div>
+							{/case}
+							{case value="3"}
+								<!--待收货-->
+								<div class="btnBox">
+									<a class="ensureGet" href="#">确认收货</a>
+									<a class="payback" href="#">申请退款</a>
+								</div>
+							{/case}
+							{case value="4"}
+								<!--待评价-->
+								<div class="btnBox">
+									<a class="estimate" href="111立即评价.html">立即评价</a>
+									<a class="delete" href="#">删除订单</a>
+									<a class="details" href="27订单详情.html">订单详情</a>
+								</div>
+							{/case}
+							{case value="5"}
+							<!--完成-->
+							<div class="btnBox">
+								<a class="delete" href="#">删除订单</a>
+								<a class="details" href="27订单详情.html#">订单详情</a>
+							</div>
+							{/case}
+						{/switch}
+
+					</li>
+					{/volist}
+				</ul>
+			</div>
+		</div>
+
+
+		{empty name="result"}
+		<!-- 没有订单时显示 -->
+		<div class="noOrder">
+			<div class="icon">
+				<i class="iconfont">&#xe66d;</i>
+			</div>
+			<p class="tip01">您还没有相关订单</p>
+			<p class="tip02">可以去看看有哪些想买的</p>
+		</div>
+		{/empty}
+
+	</div>
+
+
+
+</body>
+</html>

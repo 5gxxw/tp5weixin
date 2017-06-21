@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="description" content="微分销系统" />
+    <meta name="keywords" content="微分销系统" />
+    <title>微分销系统_多享出品</title>
+    
+    <!---------------公共部分--------------->
+    <link rel="stylesheet" type="text/css" href="__ROOT__/static/css/common.css" />
+	<link rel="stylesheet" type="text/css" href="__ROOT__/static/css/main.css" />
+	<link rel="stylesheet" type="text/css" href="__ROOT__/static/css/swiper-3.2.5.min.css" />
+	<link rel="stylesheet" type="text/css" href="__ROOT__/static/css/zyUpload.css" />
+	<link rel="styleSheet" type="text/css" href="__ROOT__/static/css/layer.css" id="layermcss">
+	
+    <script type="text/javascript" src="__ROOT__/static/js/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript" src="__ROOT__/static/js/swiper-3.2.5.min.js"></script>
+	<script type="text/javascript" src="__ROOT__/static/js/layer.js"></script>
+    <script type="text/javascript" src="__ROOT__/static/js/ectouch.js"></script>
+    <script type="text/javascript" src="__ROOT__/static/js/jquery-ui-1.10.1.custom.min.js "></script>
+    <script type="text/javascript" src="__ROOT__/static/js/jquery.ui.touch-punch.min.js "></script>
+    <script type="text/javascript" src="__ROOT__/static/js/jquery.infinite.js"></script>
+    <script type="text/javascript" src="__ROOT__/static/js/template.js"></script>
+</head>
+
+<body class="">
+
+	<!-- 头部 -->
+	<header class="header-menu dis-box">
+    	<a href="javascript:history.go(-1);"><i class="iconfont">&#xe636;</i></a>
+        <h3>商品详情</h3>
+        <a href="{:url('index')}"><i class="iconfont">&#xe621;</i></a>
+    </header>
+    
+    <!-- 主题内容 -->
+	<div class="main">
+		<form name="ECS_FORMBUY" id="ECS_FORMBUY" method="post" action="{:url('orderAdd')}">
+
+			<!-- 商品相册 -->
+			<div class="goods-photo j-show-goods-img">
+				<span class="goods-num" id="goods-num">
+					<span id="g-active-num">1</span>/<span id="g-all-num">1</span>
+				</span>
+				<ul class="swiper-wrapper">
+					<li class="swiper-slide tb-lr-center"><img src="__ROOT__/static/images/{$result.logo}"></li>
+					<li class="swiper-slide tb-lr-center"><img src="__ROOT__/static/images/{$result.logo}"></li>
+					<li class="swiper-slide tb-lr-center"><img src="__ROOT__/static/images/{$result.logo}"></li>
+				</ul>
+				<div class="swiper-pagination"></div>
+			</div>
+			
+			<!-- 商品标题 -->
+			<div class="goods-title">
+				<span class="name box-flex">{$result.name}</span>
+				<span class="heart j-heart" onclick="collect(100)" id="ECS_COLLECT">
+					<i class="iconfont">&#xe615;</i>
+					<em>收藏</em>
+				</span>
+			</div>
+			
+			<!-- 商品价格 -->
+			<div class="goods-price">
+				<p class="p-price">
+					<span id="ECS_SHOPPRICE">¥{$result.price}</span>
+					<em class="em-promotion">{$result.discount}折</em>
+				</p>
+				<p class="p-market">
+					市场价格：
+					<del id="ECS_MARKETPRICE">¥{$result.market_price}</del>
+				</p>
+				<p class="g-p-tthree dis-box">
+					<span class="text-left box-flex">销量{$result.sales}</span>
+					<span class="text-center box-flex">库存{$result.stock}</span>
+				</p>
+			</div>
+			
+			<!-- 运费信息 -->
+			<div class="goods-attr">
+				<div class="dis-box">
+					<label class="t-remark g-t-temark">运费信息</label>
+					<span class="box-flex t-goods1">
+						{if condition="$result['delivery_price'] eq 0"}
+							包邮
+						{else /}
+							¥{$result['delivery_price']}
+						{/if}
+					</span>
+				</div>
+			</div>
+			
+			<!-- 数量选择 -->
+			<div class="goods-attr j-goods-attr j-show-div">
+				<div class="dis-box">
+					<label class="t-remark g-t-temark">已选</label>
+					<span class="box-flex t-goods1">1个</span>
+					<span class="t-jiantou"><i class="iconfont">&#xe664;</i></span>
+				</div>
+				<div class="mask-filter-div"></div>
+				
+				<!--商品属性弹出层star-->
+				<div class="show-goods-attr j-filter-show-div ts-3">
+					<section class="s-g-attr-title product-list-small">
+						<div class="product-div">
+							<img class="product-list-img" src="__ROOT__/static/images/proImg09.jpg">
+							<div class="product-text">
+								<div class="dis-box" style="position:relative;">
+									<h4 class="box-flex">{$result.name}</h4>
+									<i class="iconfont icon-guanbi1 show-div-guanbi">&#xe63b;</i>
+								</div>
+								<p><span class="p-price t-first" id="ECS_GOODS_AMOUNT">¥{$result.price}</span></p>
+								<p class="dis-box p-t-remark"><span class="box-flex" >库存:<span id="goods_stock">{$result.stock}</span></span></p>
+							</div>
+						</div>	
+					</section>
+					
+					<section class="s-g-attr-con swiper-scroll">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide">
+								<h4 class="t-remark">数量</h4>
+								<div class="div-num dis-box">
+									<a class="num-less"></a>
+									<input class="box-flex" type="text" value="1" onblur="changePrice('2')" name="number" id="goods_number" />
+									<a class="num-plus" onClick="changePrice('3')"></a>
+								</div>
+							</div>
+						</div>
+						<div class="swiper-scrollbar"></div>
+					</section>
+					
+					<section class="ect-button-more dis-box">
+						<a class="btn-cart box-flex add-to-cart" href="javascript:;" onclick="addcart()" >加入购物车</a>
+						<button type="submit" class="btn-submit box-flex add-to-cart">立即购买</button>
+					</section>
+				</div>
+			</div>
+			
+			<!-- 用户评价 -->
+			<div class="goods-evaluation">
+				<a href="111评价列表.html">
+					<div class="dis-box g-evaluation-title">
+						<label class="t-remark g-t-temark">用户评价</label>
+						<div class="box-flex t-goods1">
+							好评率
+							<em class="t-first">100%</em>
+						</div>
+						<div class="t-goods1">
+							<em class="t-first">10</em>
+							<span class="t-jiantou">人评价<i class="iconfont">&#xe664;</i></span>
+						</div>
+					</div>
+				</a>
+			</div>
+			
+			<!-- 图文详情 -->
+			<div class="goods-info">
+				<div class="title">商品描述</div>
+				<div class="con">
+					{$result.content}
+				</div>
+
+				<!-- 没有数据的样式 -->
+				{empty name="result"}
+				<div class="no-div-message">
+					<i class="iconfont icon-biaoqingleiben">&#xe676;</i>
+					<p>亲，小编正在整理资料哦～！</p>
+				</div>
+				{/empty}
+			</div>
+
+			<!-- 商品ID-->
+			<input type="hidden" name="goods_id" value="{$result.id}" class="id"/>
+		</form>
+
+
+        
+        <!-- 悬浮按钮 -->
+		<div style="height:5.5rem; line-height:5.5rem; clear:both;"></div>
+        <div class="filter-btn dis-box">
+        	<a href="#" class="filter-btn-kefu filter-btn-a">
+            	<i class="iconfont">&#xe658;</i>
+                <em>客服</em>
+            </a>
+        	<a href="{:url('cartList',['member_id'=>1])}" class="filter-btn-flow filter-btn-a">
+            	<i class="iconfont">&#xe61d;</i>
+                <sup class="cart-num">{$result.cart_num}</sup>
+                <em>购物车</em>
+            </a>
+        	<a href="javascript:;" class="btn-cart box-flex add-to-cart" onclick="addcart()">
+            	<span>加入购物车</span>
+            </a>
+        	<a href="javascript:;" class="btn-submit box-flex click-show-attr add-to-cart">
+            	<span>立即购买</span>
+            </a>
+        </div>
+    </div>
+	
+<!---------------仅商品详情调用--------------->
+<script type="text/javascript">
+	/*商品详情相册切换*/
+	var swiper = new Swiper('.goods-photo', {
+	paginationClickable: true,
+	onInit: function(swiper) {
+		document.getElementById("g-active-num").innerHTML = swiper.activeIndex + 1;
+		document.getElementById("g-all-num").innerHTML = swiper.slides.length;
+	},
+	onSlideChangeStart: function(swiper) {
+		document.getElementById("g-active-num").innerHTML = swiper.activeIndex + 1;
+	}
+	});
+
+	$(function(){
+	changePrice();
+	//商品详情属性弹出层
+	$(".click-show-attr").click(function(){
+		$(".show-goods-attr").addClass("show");
+		$(".mask-filter-div").addClass("show");
+	});
+	})
+	/**
+	* 点选可选属性或改变数量时修改商品价格的函数
+	*/
+	function changePrice(type)
+	{
+	var max_number = -1;
+	var min_number = 1;
+	var qty = $("#goods_number").val();
+	if(type == 1){
+		if(qty >= min_number){
+			qty--;
+		}
+	}
+	if(type == 3){
+		if(max_number == -1){
+			max_number = $(".goods_attr_num").html() ? parseInt($(".goods_attr_num").html()) : 1;
+		}
+		if(qty <= max_number){
+			qty++;
+		}
+	}
+	}
+
+	/* 弹出层减少数量 */
+	$(".num-less").click(function(){
+		num = parseInt($(this).siblings("input").val());//当前数量
+		change_num = num-1;
+		if (change_num > 1) {
+			//保存数量
+			parseInt($(this).siblings("input").val(change_num));
+			//改变价格
+
+		}else{
+			d_messages("数量不能小于1");
+		}
+	});
+
+	/* 弹出层增加数量 */
+	$(".num-plus").click(function(){
+		num = parseInt($(this).siblings("input").val());//当前数量
+		stock = $("#goods_stock").text();//库存
+		change_num = num+1;
+		if (change_num < stock) {
+			parseInt($(this).siblings("input").val(change_num));
+
+		}else{
+			d_messages("库存不足");
+		}
+	});
+
+	/**
+	 * 点击加入购物车
+	 */
+	function addcart(){
+		var id = $(".id").val();
+		var num = $("#goods_number").val();
+		$.post("{:url('cart')}",{'goods_id':id,'num':num}, function (data) {
+			console.log(data);
+			if(data.code == 1){
+				alert('加入购物车成功！');
+				var cart_num = $(".cart-num").text(data.data);
+				console.log(cart_num);
+			}else{
+				alert('加入购物车失败！');
+			}
+		});
+	}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="description" content="微分销系统" />
+    <meta name="keywords" content="微分销系统" />
+    <title>微分销系统_多享出品</title>
+    
+    <!---------------公共部分--------------->
+    <link rel="stylesheet" type="text/css" href="__ROOT__/static/css/common.css" />
+	<link rel="stylesheet" type="text/css" href="__ROOT__/static/css/main.css" />
+	<link rel="stylesheet" type="text/css" href="__ROOT__/static/css/swiper-3.2.5.min.css" />
+	<link rel="stylesheet" type="text/css" href="__ROOT__/static/css/zyUpload.css" />
+	<link rel="styleSheet" type="text/css" href="__ROOT__/static/css/layer.css" id="layermcss">
+	
+    <script type="text/javascript" src="__ROOT__/static/js/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript" src="__ROOT__/static/js/swiper-3.2.5.min.js"></script>
+	<script type="text/javascript" src="__ROOT__/static/js/layer.js"></script>
+    <script type="text/javascript" src="__ROOT__/static/js/ectouch.js"></script>
+    <script type="text/javascript" src="__ROOT__/static/js/jquery-ui-1.10.1.custom.min.js "></script>
+    <script type="text/javascript" src="__ROOT__/static/js/jquery.ui.touch-punch.min.js "></script>
+    <script type="text/javascript" src="__ROOT__/static/js/jquery.infinite.js"></script>
+    <script type="text/javascript" src="__ROOT__/static/js/template.js"></script> 
+	
+    <!---------------仅商品列表调用--------------->
+	<!--- 回到顶部-->
+	<script type="text/javascript" src="__ROOT__/static/js/jquery.scrollUp.min.js "></script>
+</head>
+
+<body class="">
+
+	<!-- 回到顶部 -->
+	<div class="filter-top" id="scrollUp">
+		<i class="iconfont">&#xe623;</i>
+	</div>
+
+	<!-- 头部 -->
+	<header class="header-menu dis-box">
+    	<a href="javascript:history.go(-1);"><i class="iconfont">&#xe636;</i></a>
+        <h3>全部商品</h3>
+        <a href="{:url('index')}"><i class="iconfont">&#xe621;</i></a>
+    </header>
+    
+    <!-- 主题内容 -->
+	<div class="main">
+    	<!-- 排序 -->
+		<section class="product-sequence dis-box">
+        	<a href="#" class="box-flex active">综合</a>
+        	<a href="#" class="box-flex">新品</a>
+        	<a href="#" class="box-flex">销量<i class="iconfont icon-xiajiantou">&#xe625;</i></a>
+        	<a href="#" class="box-flex">价格<i class="iconfont icon-xiajiantou">&#xe625;</i></a>
+        </section>
+        
+        <!-- 商品列表 -->
+        <section class="product-list j-product-list product-list-medium">
+            <ul>
+                {volist name="lists" id="vo"}
+                <li>
+                    <div class="product-div">
+                        <a href="{:url('intro',['id'=>$vo.id])}" class="product-div-link"></a>
+                        <img src="__ROOT__/static/images/{$vo.logo}" class="product-list-img">
+                        <div class="product-text">
+                            <h4>{$vo.name}</h4>
+                            <p class="p-price">¥{$vo.price}</p>
+                        </div>
+                    </div>
+                </li>
+                {/volist}
+            </ul>
+            {empty name="lists"}
+            <!-- 没有数据的样式 -->
+            <div class="no-div-message">
+                <i class="iconfont icon-biaoqingleiben">&#xe676;</i>
+                <p>亲，还没有商品哦～！</p>
+            </div>
+            {/empty}
+			
+        </section>
+    </div>
+		
+	<!-- 底部导航 -->
+	<footer>
+		<div style="height:5rem; line-height:5rem; clear:both;"></div>
+		<div class="f-nav">
+			<ul>
+				<li>
+					<a href="{:url('index')}">
+						<i class="iconfont">&#xe621;</i>
+						<span>首页</span>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<i class="iconfont">&#xe631;</i>
+						<span>分类</span>
+					</a>
+				</li>
+				<li>
+					<a href="{:url('index')}">
+						<i class="iconfont">&#xe604;</i>
+						<span>商品</span>
+					</a>
+				</li>
+				<li>
+					<a href="{:url('cartList')}">
+						<i class="iconfont">&#xe61d;</i>
+						<span>购物车</span>
+					</a>
+				</li>
+				<li>
+					<a href="{:url('myOrder')}">
+						<i class="iconfont">&#xe62d;</i>
+						<span>我的</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</footer>
+</body>
+</html>

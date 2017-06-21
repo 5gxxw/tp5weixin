@@ -1,0 +1,1356 @@
+@charset "utf-8";
+
+/* -- 个人中心主页 -- */
+.headBox{
+	width:100%; 
+	background:url('../images/userbg.jpg') center no-repeat; 
+	background-size: cover; 
+	text-align: center; 
+	position: relative; 
+	padding:1.5rem 0 4rem 0;
+}
+.headBox > .headPicBox{
+    width: 7rem;
+    height: 7rem;
+    border-radius: 50%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border: 1px rgba(255,255,255,0.5) solid;
+    margin: 1.5rem auto 0;
+}
+.headBox > .headPicBox > .innerBox{
+    width: 6.5rem;
+    height: 6.5rem;
+    border-radius: 50%;
+    margin: 2px auto 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border: 2px rgba(255,255,255,0.8) solid;
+    overflow: hidden;
+}
+.headBox > .headPicBox > .innerBox img{
+    width: 100%;
+    height: 100%;
+}
+.headBox > p.nickname{
+    width: 100%;
+    text-align: center;
+    line-height: 2.4rem;
+    color: #FFF;
+	font-size:1.4rem;
+}
+.headBox > p.introNum{
+    width: 100%;
+    text-align: center;
+    line-height: 1.8rem;
+    color: #FFF;
+	font-size:1.4rem;
+}
+.headBox > p.introNum span{
+    color: #FFF;
+}
+.headBox > ul.twoBtn{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3rem;
+    width: 100%;
+    background: rgba(0,0,0,0.5);
+}
+.headBox > ul.twoBtn >li{
+    float: left;
+    height: 3rem;
+    width: 50%;
+    overflow: hidden;
+}
+.headBox > ul.twoBtn > li > a{
+    display: block;
+    width: 100%;
+    height: 3rem;
+    overflow: hidden;
+    line-height: 3rem;
+    text-align: center;
+}
+.headBox > ul.twoBtn > li:first-child{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border-right: 1px #888 solid;
+}
+.headBox > ul.twoBtn > li > a >i{
+    color: #FFF;
+    font-size: 1.6rem;
+    margin-right: .3rem;
+}
+.headBox > ul.twoBtn > li > a >span{
+    color: #FFF;
+    font-size: 1.2rem;
+}
+.myOrder{
+    width: 100%;
+    overflow: hidden;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding:.5rem 1rem;
+	background:#fff;
+	border-bottom:1px solid #f5f5f5;
+}
+.myOrder > a{
+    display: block;
+	height:3rem;
+    width: 100%;
+    overflow: hidden;
+}
+.myOrder > a > span{
+    float: left;
+    line-height: 3rem;
+	height:3rem;
+	font-size:1.6rem;
+	font-weight:bold;
+}
+.myOrder > a > label{
+    float: right;
+    line-height: 3rem;
+    font-size: 1.2rem;
+    color: #999;
+    margin-right: .5rem;
+	
+}
+.myOrder > a > i{
+    float: right;
+    line-height: 3rem;
+    font-size: 1.5rem;
+	color:#777;
+}
+ul.orderItem{
+    width: 100%;
+    background: #FFF;
+    overflow: hidden;
+}
+ul.orderItem > li{
+    float: left;
+    width: 25%;
+	padding:.8rem 0;
+    overflow: hidden;
+}
+ul.orderItem > li > a{
+    display: block;
+    height:5rem;
+    width: 100%;
+    overflow: hidden;
+}
+ul.orderItem > li > a > span.icon{
+    display: block;
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+}
+ul.orderItem > li > a > span.icon >em{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left: .5rem;
+    display: block;
+    width: 1.8rem;
+    height: 1.8rem;
+    border-radius: 50%;
+    background: #EC5151;
+    text-align: center;
+    color: #FFF;
+    font-size: 1.2rem;
+	line-height:1.8rem;
+    font-style: normal;
+}
+ul.orderItem > li > a > span.icon > i{
+    font-size: 2.6rem;
+    color: #999;
+}
+ul.orderItem > li > a > label.txt{
+    display: block;
+    width: 100%;
+    line-height: 1.5rem;
+    text-align: center;
+    color: #666;
+    font-size: 1.3rem;
+}
+p.toolTxt{
+    width: 100%;
+    line-height: 3rem;
+    overflow: hidden;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: .5rem 1rem;
+	background:#fff;
+	border-bottom:1px solid #f5f5f5;
+	margin-top:.8rem;
+	font-weight:bold;
+	font-size:1.6rem;
+	display:block;
+}
+ul.necessaryTool{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    background: #FFF;
+}
+ul.necessaryTool > li{
+    float: left;
+    width: 25%;
+    height: auto;
+    overflow: hidden;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border-right: 1px #F5F5F5 solid;
+    border-top: 1px #F5F5F5 solid;
+}
+ul.necessaryTool > li:nth-child(4n){
+    border-right: 0;
+}
+ul.necessaryTool > li:nth-child(1){
+    border-top: 0;
+}
+ul.necessaryTool > li:nth-child(2){
+    border-top: 0;
+}
+ul.necessaryTool > li:nth-child(3){
+    border-top: 0;
+}
+ul.necessaryTool > li:nth-child(4){
+    border-top: 0;
+}
+ul.necessaryTool > li > a{
+    display: block;
+    width: 100%;
+    height:0;
+    background-size: 100% 100%;
+    padding-bottom: 100%;
+    overflow: hidden;
+    position: relative;
+}
+ul.necessaryTool > li > a > span.icon{
+    display: block;
+    width: 100%;
+    position: absolute;
+    top:18%;
+    left: 0;
+    text-align: center;
+}
+ul.necessaryTool > li > a > span.icon > i{
+    font-size: 2.4rem;
+}
+ul.necessaryTool > li > a > span.icon > label.toolNam{
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 1.3rem;
+	color:#555;
+    overflow: hidden;
+}
+ul.necessaryTool > li > a > span.icon > em{
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 1.2rem;
+	color:#888;
+}
+ul.necessaryTool > li > a > span.icon > i.red{
+    color: #EC5151;
+}
+ul.necessaryTool > li > a > span.icon > i.blue{
+    color: #1da9e3;
+}
+ul.necessaryTool > li > a > span.icon > i.yellow{
+    color: #fcc210;
+}
+ul.necessaryTool > li > a > span.icon > i.green{
+    color: #0bc57d;
+}
+
+/* -- 我的订单 -- */
+.orderNav{
+    width: 100%;
+    height: 4rem;
+    background: #FFF;
+    overflow: hidden;
+}
+.orderNav > li{
+    float: left;
+    width: 20%;
+    height: 4rem;
+    overflow: hidden;
+    line-height: 4rem;
+    text-align: center;
+    color: #333;
+	font-size:1.4rem;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.orderNav > li.click{
+    color: #EC5151;
+    border-bottom: 2px #EC5151 solid;
+}
+.switchPool{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+.switchPool > .itemBox{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    display: none;
+}
+.switchPool > .show{
+    display: block;
+}
+.switchPool > .itemBox > ul.itemUl{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+.switchPool > .itemBox > ul.itemUl > li{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    background: #FFF;
+    margin-top: .8rem;
+}
+.switchPool > .itemBox > ul.itemUl > li > .orderNum{
+    width: 100%;
+    padding: 0 1rem;
+    height: 4rem;
+	box-sizing:border-box;
+    overflow: hidden;
+}
+.switchPool > .itemBox > ul.itemUl > li > .orderNum > span.num{
+    float: left;
+    height: 4rem;
+    line-height: 4rem;
+    width: 65%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+	font-size:1.3rem;
+}
+.switchPool > .itemBox > ul.itemUl > li > .orderNum > span.num em{
+    font-style: normal;
+}
+.switchPool > .itemBox > ul.itemUl > li > .orderNum > label.state{
+    float: right;
+    text-align: right;
+    color: #EC5151;
+    height: 4rem;
+    line-height: 4rem;
+	font-size:1.3rem;
+    overflow: hidden;
+}
+.switchPool > .itemBox > ul.itemUl > li > a.proDetail{
+    display: block;
+    width: 100%;
+    height: auto;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding:1rem;
+    overflow: hidden;
+	box-sizing:border-box;
+	background:#f5f5f5;
+    position: relative;
+}
+.switchPool > .itemBox > ul.itemUl > li > a.proDetail > dl{
+    width: 100%;
+    height: 5rem;
+    overflow: hidden;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding-right: 5rem;
+}
+.switchPool > .itemBox > ul.itemUl > li > a.proDetail > dl > dt{
+    float: left;
+    height: 5rem;
+    width: 5rem;
+    overflow: hidden;
+}
+.switchPool > .itemBox > ul.itemUl > li > a.proDetail > dl > dt img{
+    width: 100%;
+    height: 100%;
+}
+.switchPool > .itemBox > ul.itemUl > li > a.proDetail > dl > dd{
+    overflow: hidden;
+    margin-left: 5.5rem;
+}
+.switchPool > .itemBox > ul.itemUl > li > a.proDetail > dl > dd.nam{
+    max-height: 5rem;
+    line-height: 1.6rem;
+    color: #333;
+	font-size:1.3rem;
+}
+.switchPool > .itemBox > ul.itemUl > li > a.proDetail > dl > dd.attribute{
+    height: 24px;
+    line-height: 24px;
+}
+.switchPool > .itemBox > ul.itemUl > li > a.proDetail > span.price{
+    display: block;
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    width: 5rem;
+    height: 6rem;
+    overflow: hidden;
+}
+.switchPool > .itemBox > ul.itemUl > li > a.proDetail > span.price em{
+    font-style: normal;
+    display: block;
+    font-size: 1.3rem;
+}
+.switchPool > .itemBox > ul.itemUl > li > a.proDetail > span.price em.currentPrice label{
+    color: #333;
+}
+.switchPool > .itemBox > ul.itemUl > li > a.proDetail > span.price em label{
+    font-size: 1.3rem;
+}
+.switchPool > .itemBox > ul.itemUl > li > a.proDetail > span.price em.currentPrice{
+    width: 100%;
+    height: 1.8rem;
+    line-height: 1.8rem;
+    color: #333;
+    text-align: right;
+}
+.switchPool > .itemBox > ul.itemUl > li > a.proDetail > span.price em.pastPrice{
+    width: 100%;
+    height: 1.8rem;
+    line-height: 1.8rem;
+    text-align: right;
+    text-decoration: line-through;
+    color: #999;
+}
+.switchPool > .itemBox > ul.itemUl > li > a.proDetail > span.price em.pastPrice label{
+    color: #999;
+}
+.switchPool > .itemBox > ul.itemUl > li > a.proDetail > span.price em.num{
+    width: 100%;
+    height: 1.8rem;
+    line-height: 1.8rem;
+    text-align: right;
+    color: #999;
+}
+.switchPool > .itemBox > ul.itemUl > li > a.proDetail > span.price em.num label{
+    color: #999;
+}
+.switchPool > .itemBox > ul.itemUl > li > p.totalInfo{
+    width: 100%;
+    height: 3.4rem;
+    overflow: hidden;
+    line-height: 3.4rem;
+    text-align: right;
+    border-bottom: 1px #EDEDED solid;
+	font-size:1.3rem;
+}
+.switchPool > .itemBox > ul.itemUl > li > p.totalInfo font{
+    color: #333;
+	font-size:1.6rem;
+}
+.switchPool > .itemBox > ul.itemUl > li > p.totalInfo label{
+    color: #999;
+    font-size: 1.2rem;
+}
+.switchPool > .itemBox > ul.itemUl > li > .btnBox{
+    width: 100%;
+    padding:1rem;
+	box-sizing:border-box;
+	overflow:hidden;
+}
+.switchPool > .itemBox > ul.itemUl > li > .btnBox >a{
+    float: right;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border: 1px #7F7F7F solid;
+    text-align: center;
+    line-height: 2.6rem;
+    font-size: 1.4rem;
+	padding:0 1rem;
+	margin-left:.5rem;
+	border-radius:.2rem;
+}
+.switchPool > .itemBox > ul.itemUl > li > .btnBox >a.payNow{
+    border: 1px solid #EC5151;
+    color: #EC5151;
+}
+.switchPool > .itemBox > ul.itemUl > li > .btnBox >a.ensureGet{
+    border: 1px solid #EC5151;
+    color: #EC5151;
+}
+.switchPool > .itemBox > ul.itemUl > li > .btnBox >a.estimate{
+    border: 1px solid #EC5151;
+    color: #EC5151;
+}
+.noOrder{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    margin: 3rem 0;
+}
+.noOrder > .icon{
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 30px;
+    background: #D0CFCF;
+    line-height: 6rem;
+    text-align: center;
+}
+.noOrder > .icon > i{
+    font-size: 4rem;
+    color: #FFF;
+}
+.noOrder > p.tip01{
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+    color: #333;
+    font-size: 1.6rem;
+}
+.noOrder > p.tip02{
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+    color: #999;
+    font-size: 1.3rem;
+}
+
+/* -- 订单详情 -- */
+.tipRedBg{
+    width: 100%;
+    height: 0;
+    padding-bottom: 30%;
+    background-size: 100% 100%;
+    overflow: hidden;
+    background-image: url('../Images/orderDetailBg.png');
+    position: relative;
+}
+.tipRedBg > .tipContent{
+    height: 50px;
+    width: 160px;
+    overflow: hidden;
+    position: absolute;
+    top: 50%;
+    margin-top: -25px;
+    left: 28px;
+}
+.tipRedBg > .tipContent p{
+    width: 100%;
+    height: 25px;
+    line-height: 25px;
+    overflow: hidden;
+    color: #FFF;
+}
+.tipRedBg > .tipContent > .colockbox{
+    width: 100%;
+    height: 25px;
+    line-height: 25px;
+    overflow: hidden;
+}
+.tipRedBg > .tipContent > .colockbox span{
+    color: #FFF;
+    font-size: 1.3rem;
+}
+.tipRedBg > .tipContent > .colockbox em{
+    color: #FFF;
+    font-size: 1.3rem;
+    font-style: normal;
+}
+a.address{
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    background: #FFF;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 1rem;
+}
+a.address > dl{
+    width: 100%;
+    overflow: hidden;
+}
+a.address > dl > dt{
+    float: left;
+    overflow: hidden;
+}
+a.address > dl > dt i{
+    font-size: 2.4rem;
+    color: #666;
+}
+a.address > dl > dd{
+    margin-left: 35px;
+    overflow: hidden;
+}
+a.address > dl > dd.nam{
+    height: 1.4rem;
+    line-height: 1.4rem;
+}
+a.address > dl > dd.nam > span{
+    float: left;
+    width: 50%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 1.3rem;
+}
+a.address > dl > dd.nam > span em{
+    font-style: normal;
+    font-size: 1.3rem;
+}
+a.address > dl > dd.nam > label{
+    float: right;
+    text-align: right;
+    width: 50%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 1.3rem;
+}
+a.address > dl > dd.toAddress{
+    line-height: 1.6rem;
+    overflow: hidden;
+    font-size: 1.3rem;
+	margin-top:.5rem;
+}
+a.address > dl > dd.toAddress span{
+    font-size: 1.3rem;
+}
+.mainBox{
+    width: 100%;
+    height: auto;
+    background: #FFF;
+    overflow: hidden;
+    margin-top: .8rem;
+}
+.mainBox > a.shop{
+    display: block;
+    width: 96%;
+    height: 40px;
+    margin: 0 2%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border-bottom: 2px #F7F7F7 solid;
+}
+.mainBox > a.shop > span.shopPic{
+    width: 24px;
+    height: 24px;
+    overflow: hidden;
+    margin-top: 8px;
+    float: left;
+}
+.mainBox > a.shop > span.shopPic img{
+    width: 100%;
+    height: 100%;
+}
+.mainBox > a.shop > label.shopNam{
+    float: left;
+    margin-left: 10px;
+    height: 40px;
+    line-height: 40px;
+    color: #333;
+    overflow: hidden;
+}
+.mainBox > a.shop > i{
+    float: right;
+    line-height: 40px;
+}
+.mainBox > a.pro{
+    display: block;
+    width: 100%;
+    height: auto;
+	padding:1rem 1rem 0 1rem;
+    overflow: hidden;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    position: relative;
+}
+.mainBox > a.pro > dl{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding-right: 5rem;
+}
+.mainBox > a.pro > dl dt{
+    float: left;
+    width: 5rem;
+    height: 5rem;
+    overflow: hidden;
+}
+.mainBox > a.pro > dl dt img{
+    width: 100%;
+    height: 100%;
+}
+.mainBox > a.pro > dl dd{
+    margin-left: 70px;
+    overflow: hidden;
+}
+.mainBox > a.pro > dl dd.nam{
+    max-height: 5rem;
+    line-height: 1.6rem;
+    overflow: hidden;
+    color: #333;
+	font-size:1.3rem;
+}
+.mainBox > a.pro > dl dd.attribute{
+    height: 28px;
+    line-height: 28px;
+    color: #999;
+}
+.mainBox > a.pro > span.price{
+    display: block;
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    width: 5rem;
+    height: 6rem;
+    overflow: hidden;
+}
+.mainBox > a.pro > span.price em{
+    font-style: normal;
+    display: block;
+    font-size: 1.3rem;
+}
+.mainBox > a.pro > span.price em.currentPrice label{
+    color: #333;
+}
+.mainBox > a.pro > span.price em label{
+    font-size: 1.3rem;
+}
+.mainBox > a.pro > span.price em.currentPrice{
+    width: 100%;
+    height: 1.8rem;
+    line-height: 1.8rem;
+    color: #333;
+    text-align: right;
+}
+.mainBox > a.pro > span.price em.pastPrice{
+    width: 100%;
+    height: 1.8rem;
+    line-height: 1.8rem;
+    text-align: right;
+    text-decoration: line-through;
+    color: #999;
+}
+.mainBox > a.pro > span.price em.pastPrice label{
+    color: #999;
+}
+.mainBox > a.pro > span.price em.num{
+    width: 100%;
+    height: 1.8rem;
+    line-height: 1.8rem;
+    text-align: right;
+    color: #999;
+}
+.mainBox > a.pro > span.price em.num label{
+    color: #999;
+}
+.mainBox > a.pro > p.totalInfo{
+    width: 100%;
+    height: 3rem;
+    overflow: hidden;
+    line-height: 3rem;
+    text-align: right;
+    border-top: 1px #EDEDED solid;
+	margin-top:.8rem;
+	font-size:1.3rem;
+}
+.mainBox > a.pro > p.totalInfo font{
+    color: #333;
+	font-size:1.6rem;
+}
+.mainBox > a.pro > p.totalInfo label{
+    color: #999;
+    font-size: 1.2rem;
+}
+.basicInfo{
+    width: 100%;
+    background: #FFF;
+    height: auto;
+    overflow: hidden;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 1rem;
+	margin-top:.8rem;
+}
+.basicInfo span{
+    font-size: 1.3rem;
+	font-weight:bold;
+	color:#555;
+}
+.basicInfo em{
+    font-style: normal;
+    font-size: 1.3rem;
+	color:#555;
+}
+
+
+.btnBox{
+    width: 100%;
+    padding:1rem;
+	box-sizing:border-box;
+	overflow:hidden;
+	background:#fff;
+}
+.btnBox span{
+    line-height: 2.6rem;
+    font-size: 1.4rem;
+	color:#555;
+}
+.btnBox >a{
+    float: right;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border: 1px #7F7F7F solid;
+    text-align: center;
+    line-height: 2.6rem;
+    font-size: 1.4rem;
+	padding:0 1rem;
+	margin-left:.5rem;
+	border-radius:.2rem;
+}
+.btnBox >a.ensureGet{
+    border: 1px solid #EC5151;
+    color: #EC5151;
+}
+p.lastTip{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 5px 2%;
+    font-size: 1.3rem;
+    line-height: 16px;
+    background: #FFF;
+}
+p.lastTip a{
+    display: inline-block;
+    color: #E90327;
+}
+
+/* -- 我的推广 -- */
+.thinkChange{
+    width: 100%;
+	height:auto;
+	padding:2rem;
+	box-sizing:border-box;
+	overflow:hidden;
+}
+.thinkChange > .content{
+    width: 100%;
+    height: auto;
+	border-radius:3px;
+	background:#fff;
+	margin-bottom:1.5rem;
+	overflow:hidden;
+}
+.thinkChange > .content > .mainBox{
+    width: 24rem;
+    height: 24rem;
+    overflow: hidden;
+	position:relative;
+	left:50%;
+	margin:1.5rem 0 0 -12rem;
+}
+.thinkChange > .content > .mainBox img{
+    width: 100%;
+    height: 100%;
+}
+.thinkChange > .content > .txt{
+    width:100%;
+	text-align:center;
+	font-size:1.3rem;
+	color:#888;
+	line-height:4rem;
+}
+
+/* -- 我的收藏 -- */
+.collect-list ul
+{width:100%; overflow:hidden;}
+.collect-list ul li
+{width:100%; padding-bottom:1px; box-sizing:border-box;}
+.collect-list ul li .product-div
+{position:relative; padding:.8rem;}
+.collect-list ul li .product-list-img
+{width:9.6rem; height: auto; float:left; border:1px solid #F6F6F9;}
+.collect-list ul li .product-text
+{margin-left:11rem; height:9.2rem;  padding:.2rem 0;}
+.collect-list ul li .product-text h4
+{font-size:1.5rem; line-height:2rem;}
+.collect-list ul li .product-text p
+{clear:none;}
+.collect-list ul li .product-text .p-t-remark
+{font-size:1.3rem; color:#999;}
+.collect-list ul li .product-text .p-price
+{font-size:2rem;}
+.collect-list ul li .a-accessories-clear
+{position:absolute; right:1.3rem; bottom:1.3rem;}
+.collect-list ul li .a-accessories-clear i
+{font-size:1.8rem; color:#888;}
+
+/* -- 投诉建议 -- */
+.txtBox{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    background: #FFF;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 1rem;
+}
+.txtBox > .txt{
+    line-height: 1.8rem;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    font-size: 1.4rem;
+	margin-bottom:1rem;
+}
+.txtBox > p.text{
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    overflow: hidden;
+}
+p.itemName{
+    width: 100%;
+    height: 3rem;
+    line-height: 3rem;
+    overflow: hidden;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+	font-size:1.4rem;
+}
+#name{
+    display: block;
+    width: 100%;
+    height: 4rem;
+    background: #FFF;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0 10px;
+    border: 1px #f1f1f1 solid;
+}
+#tel{
+    display: block;
+    width: 100%;
+    height: 4rem;
+    background: #FFF;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0 10px;
+    border: 1px #f1f1f1 solid;
+}
+#texArea{
+    width: 100%;
+    height: 8rem;
+    background: #FFF;
+    border: 1px #f1f1f1 solid;
+    resize: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 5px 10px;
+	margin-bottom:1rem
+}
+
+/* -- 收货地址 -- */
+.flow-consignee-list .flow-checkout-adr
+{background:#fff; margin-top:.8rem; width:100%; box-sizing:border-box; font-size:1.7rem;}
+.flow-consignee-list .flow-checkout-adr a
+{position:static; font-size:1.5rem; color:#777; margin-left:1rem;}
+.flow-consignee-list .flow-checkout-adr a i
+{font-size:1.9rem; margin-right:.8rem;}
+.flow-consignee-list .flow-have-adr
+{padding:2rem 1.3rem;}
+.flow-set-adr
+{border-bottom:1px solid #F6F6F9; font-size:1.3rem; overflow:hidden; padding:1rem 1.3rem;}
+.flow-set-adr .ect-select label span
+{font-size:1.5rem; color:#666}
+/*填写－修改收货人信息*/
+.flow-consignee
+{width:100%; box-sizing:border-box; padding:1rem; background:#fff; min-height:100vh;}
+.flow-consignee .ect-button-more
+{margin-top:.8rem;}
+/*选择收货人信息*/
+.flow-get-consignee .flow-checkout-ad
+{position:relative;}
+.flow-get-consignee .flow-checkout-adr i.icon-gou
+{ font-size:2.2rem; color:#ec5151; position:absolute; top:50%; right:1.3rem; margin-top:-1.4rem; display:none;}
+.flow-get-consignee .flow-checkout-adr.active
+{padding-right:3.4rem;}
+.flow-get-consignee .flow-checkout-adr.active i.icon-gou
+{display:initial;}
+
+
+/* -- 我的钱包 -- */
+.purse-header-box
+{background:#EC5151; width:100%; padding:1rem; box-sizing:border-box;}
+.purse-header-box p
+{font-size:1.4rem; color:#fecece;}
+.purse-header-box h2
+{font-size:6rem; color:#fff; padding:.5rem 0;}
+.my-nav-box
+{background:#fff; margin-top:1rem;}
+.my-nav-box a
+{border-bottom:1px solid #f5f5f5; padding:1.3rem;}
+.my-u-title-size
+{font-size:1.6rem;color:#333;}
+.my-nav-box .my-u-title-size i
+{font-size:2rem; margin-right:.5rem;}
+.my-nav-box .my-u-title-size i.red
+{color:#EC5151;}
+.my-nav-box .my-u-title-size i.blue
+{color:#1da9e3;}
+.my-nav-box .my-u-title-size i.yellow
+{color:#fcc210;}
+.my-nav-box .my-u-title-size i.green
+{color:#0bc57d;}
+/*充值*/
+.user-recharge
+{width:100%; box-sizing:border-box; padding:0 1rem; margin:.8rem 0; background:#fff;}
+.user-recharge .f-c-select-msg label
+{font-size: 1.65rem; display: block;height: 3rem;line-height: 3rem;margin-right: 0.8rem;vertical-align: middle;}
+.user-recharge .text-all span.t-jiantou i
+{margin-top:.4rem;}
+.user-recharge .t-goods1
+{margin-top:.4rem;}
+.user-recharge .goods-show-title
+{background:#fff; padding:1.3rem; overflow:hidden;}
+.goods-show-title
+{height:2.2rem; line-height: 2.2rem;}
+.g-c-title-h3
+{font-size:1.6rem; color:#333;}
+.goods-show-con
+{max-height:26rem; min-height: 10rem; overflow-y: hidden;}
+.s-g-list-con
+{overflow:hidden; max-height: 20rem;}
+.s-g-list-con ul li
+{padding:0;}
+.s-g-list-con ul li label span
+{vertical-align: middle;}
+.s-g-list-con ul li label span i
+{font-size:2rem; margin-right:.5rem;}
+.s-g-list-con ul li label span font
+{position:absolute;}
+.s-g-list-con ul li label span i.green
+{color:#44b549;}
+.s-g-list-con ul li label span i.blue
+{color:#009ee8;}
+.user-recharge .t-goods1
+{text-align:right;}
+.user-recharge .t-goods1 span i
+{font-size:2rem; margin-right:.5rem;}
+.user-recharge .t-goods1 span i.green
+{color:#44b549;}
+.user-recharge .t-goods1 span i.blue
+{color:#009ee8;}
+.user-recharge .s-g-list-con
+{width:100%; box-sizing:border-box; padding:0 1.3rem; background:#fff;}
+.user-recharge-btn
+{width:100%; box-sizing:border-box; padding:0 1rem;}
+/*密码管理*/
+.user-wallet-pw
+{width:100%;}
+.user-wallet-pw .wallet-pw-txt
+{font-size:1.4rem; color:#555; width:100%; box-sizing:border-box; padding:1.5rem 1rem; text-align:center;}
+.user-wallet-pw .text-all
+{box-sizing:border-box; padding:1rem; background:#fff;}
+.user-wallet-pw .user-recharge-btn
+{margin:1.3rem 0;}
+/*钱包明细*/
+.user-wallet-detail
+{width:100%; overflow:hidden;}
+.user-wallet-detail ul li
+{width:100%; box-sizing:border-box; padding:1rem; background:#fff; border-bottom:1px solid #f5f5f5; overflow:hidden;}
+.user-wallet-detail ul li .wallet-detail-div
+{width:100%; overflow:hidden;}
+.user-wallet-detail ul li .detail-title
+{width:70%; font-size:1.5rem; line-height:2.4rem; display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:1; text-overflow:ellipsis; color:#333;}
+.user-wallet-detail ul li .detail-title span
+{margin-left:.8rem; font-size:1.3rem;}
+.user-wallet-detail ul li .detail-title .success
+{color:#999;}
+.user-wallet-detail ul li .detail-title .review
+{color:#EC5151;}
+.user-wallet-detail ul li .detail-money
+{font-size:1.6rem; line-height:2.4rem;}
+.user-wallet-detail ul li .detail-money i
+{font-size:1rem; color:#999; margin-right:.2rem;}
+.user-wallet-detail ul li .detail-money small
+{font-size:1.1rem;}
+.user-wallet-detail ul li .detail-time, .detail-way
+{font-size:1.3rem; color:#888; line-height:2rem;}
+.user-wallet-detail ul li span.yellow
+{color:#eea800;}
+.user-wallet-detail ul li span.green
+{color:#13d15f;}
+.user-wallet-detail ul li .distribution-level
+{color:#333; font-size:1.5rem;}
+.user-wallet-detail ul li .distribution-num
+{color:#ff9c00; font-size:1.5rem;}
+
+/*使用说明*/
+.wallet-instruction
+{width:100%; padding:1rem; box-sizing:border-box; line-height:2rem; font-size:1.4rem;}
+
+/* -- 我的奖金 -- */
+.bonus-header-box
+{background:#EC5151; width:100%; overflow:hidden; padding:2rem 0;}
+.bonus-header-box ul li
+{width:33.33%; text-align:center; color:#fff; float:left;}
+.bonus-header-box ul li h3
+{font-size:1.7rem; line-height:2rem; font-weight:bold;}
+.bonus-header-box ul li p
+{font-size:1.2rem; line-height:2rem;}
+.my-bonus-nav
+{width:100%; box-sizing:border-box; background:#fff; overflow:hidden; margin:.8rem 0;}
+.my-bonus-nav a
+{display:block; width:25%; height:8rem; box-sizing:border-box; border-bottom:1px solid #eee; border-right:1px solid #eee; padding:1.5rem 0; float:left; text-align:center;}
+.my-bonus-nav a i
+{color:#777; font-size:2.4rem;}
+.my-bonus-nav a p
+{font-size:1.2rem; color:#999; line-height:2rem;}
+/*转账 提现*/
+.wechat-info
+{width:100%; padding:1rem 0; box-sizing:border-box; overflow:hidden; border-bottom:1px solid #eee;}
+.wechat-info img
+{width:4rem; height:4rem; border-radius:.5rem; float:left;}
+.wechat-info span
+{margin-left:.5rem; line-height:4rem; font-size:1.6rem; color:#777;}
+/*交易记录*/
+.user-wallet-detail ul li .record-img
+{width:4rem; height:4rem; overflow:hidden; vertical-align:middle;}
+.user-wallet-detail ul li .record-img img
+{width:4rem; height:4rem; border-radius:50%;}
+.user-wallet-detail ul li .record-tit
+{margin-left:1rem;}
+.user-wallet-detail ul li .record-tit h3
+{font-size:1.5rem; color:#333; line-height:2.4rem; display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:1; text-overflow:ellipsis; }
+.user-wallet-detail ul li .record-tit p
+{font-size:1.3rem; color:#888;}
+.user-wallet-detail ul li .record-in
+{margin-left:1rem; position:relative;}
+.user-wallet-detail ul li .record-in h3
+{font-size:1.5rem; color:#EC5151; line-height:2.4rem; text-align:right;}
+.user-wallet-detail ul li .record-in p
+{font-size:1.3rem; color:#888; text-align:right;}
+.user-wallet-detail ul li .record-in p span.green
+{color:#13d15f;}
+/* -- 积分商城 -- */
+/*积分余额 签到*/
+.integral-head
+{background:#fff; width:100%; overflow:hidden; box-sizing:border-box; padding:1rem;}
+.integral-head .integral-head-img
+{width:4rem; height:4rem; overflow:hidden; vertical-align:middle;}
+.integral-head .integral-head-img img
+{width:4rem; height:4rem; border-radius:50%;}
+.integral-head .integral-head-num
+{margin:0 1rem;}
+.integral-head .integral-head-num h3
+{font-size:1.8rem; color:#EC5151; line-height:2.2rem;}
+.integral-head .integral-head-num h3 small
+{font-size:1.2rem;}
+.integral-head .integral-head-num p
+{font-size:1.2rem; color:#888;}
+.integral-head .integral-head-sign
+{position:relative;}
+.integral-head .integral-head-sign a
+{padding:.5rem .8rem; line-height:4rem; background:#f4a213; color:#fff; font-size:1.2rem; border-radius:1.2rem}
+/*菜单*/
+.integral-nav
+{background:#fff; width:100%; overflow:hidden; box-sizing:border-box; border-top:1px solid #eee;}
+.integral-nav ul li
+{width:33.3%; float:left; padding:.8rem 0; text-align:center; box-sizing:border-box;}
+.integral-nav ul li a
+{border-right:1px solid #f5f5f5; display:block;}
+.integral-nav ul li a i
+{color:#999; font-size:1.7rem;}
+.integral-nav ul li a p
+{color:#666; font-size:1.3rem;}
+/*积分商品*/
+.integral-pro
+{background:#fff; width:100%; overflow:hidden; box-sizing:border-box; margin:.8rem 0;}
+.integral-pro .integral-pro-tit
+{width:100%; box-sizing:border-box; border-bottom:1px solid #eee; padding:1rem; font-size:1.5rem; color:#333;}
+.integral-pro-list ul li
+{width:50%; float:left; padding:1rem 2rem; text-align:center; box-sizing:border-box; border-right:1px solid #eee; border-bottom:1px solid #eee;}
+.integral-pro-list ul li a
+{display:block;}
+.integral-pro-list ul li .integral-pro-name
+{display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:1; text-overflow:ellipsis; overflow:hidden; font-size:1.3rem; margin:.5rem 0 0 0;}
+.integral-pro-list ul li .integral-pro-price
+{font-size:1.3rem; color:#EC5151;}
+.integral-pro-list ul li .integral-pro-price i
+{font-size:1.3rem;}
+/*兑换记录*/
+.integral-order-list ul
+{width:100%; overflow:hidden; margin-top:.8rem;}
+.integral-order-list ul li
+{width:100%; box-sizing:border-box; margin-bottom:.8rem;} 
+.integral-order-list ul li .order-list-div
+{background:#fff; padding:1rem; overflow:hidden; position:relative;}
+.integral-order-list ul li .order-list-div .product-list-img
+{width:8rem; height:auto; border:1px solid #f5f5f5; float:left;}
+.integral-order-list ul li .product-text
+{margin-left:9rem; padding:.2rem 0; height:8rem;}
+.integral-order-list ul li .product-text h4
+{display:-webkit-box; line-height:1.8rem; -webkit-box-orient:vertical; -webkit-line-clamp:1; text-overflow:ellipsis; overflow:hidden; font-size:1.5rem; padding-right:0; margin-bottom:.5rem;}
+.integral-order-list ul li .product-text p
+{font-size:1.3rem; color:#888; clear:none; line-height:1.8rem; -webkit-box-orient:vertical; -webkit-line-clamp:1; text-overflow:ellipsis; overflow:hidden; display:-webkit-box; padding:0;}
+.integral-order-list ul li .product-text .t-first
+{color:#EC5151; font-size:1.8rem; margin-top:.5rem;}
+.integral-order-list ul li .product-text .t-first i
+{font-size:1.2rem; color:#999; margin-right:.5rem;}
+/*积分商品详情*/
+.integral-info .integral-info-img
+{position:relative; width:100%; box-sizing:border-box; overflow:hidden; height:25rem;}
+.integral-info .transparent-bg
+{bottom:0; left:0; width:100%; height:4rem; background:linear-gradient(transparent, #000); position:absolute; opacity:.6; z-index:4;}
+.integral-info .integral-info-img h3
+{width:100%; padding:1rem; box-sizing:border-box; color:#fff; font-size:1.7rem; font-weight:bold; position:absolute; line-height:2rem; bottom:0; z-index:10; overflow:hidden;}
+.integral-info .integral-info-price
+{width:100%; padding:1rem; box-sizing:border-box; background:#fff; border-bottom:1px solid #eee;}
+.integral-info .integral-info-price i
+{font-size:1.2rem; color:#999; margin-right:.5rem;}
+.integral-info .integral-info-price p
+{color:#EC5151; font-size:2rem; font-weight:bold; font-weight:normal;}
+.integral-info .integral-info-con
+{width:100%; padding:1rem; box-sizing:border-box; line-height:2rem; font-size:1.4rem; background:#fff; border-top:1px solid #eee; margin-top:.8rem; margin-bottom:6rem;}
+
+/* -- 成长值 -- */
+.growth-head
+{width:100%; background:url('../images/growthbg.jpg') center no-repeat; background-size: cover; text-align: center; position: relative; padding:2rem 0 1rem 0;}
+.growth-head .tu
+{width:7rem; height:7rem; margin:0 auto; text-align:center; border-radius:50%; -webkit-border-radius:50%; overflow:hidden; border:3px solid rgba(255,255,255,0.5);}
+.growth-head h3
+{color:#bf6203; font-size:1.8rem; padding:.5rem 0; font-weight:bold;}
+.growth-head p
+{font-size:1.5rem; color:#bf6203;}
+.growth-head p span
+{padding:0 .5rem;}
+.growth-head p span font
+{padding:.2rem 1rem; background:#bf6203; color:#fadb02; border-radius:5rem; font-size:1.2rem;}
+
+.growth-speed
+{width:100%; box-sizing:border-box; overflow:hidden; background:#fff; border-bottom:1px solid #eee;}
+.growth-speed .growth-speed-tit
+{width:100%; padding:1rem; box-sizing:border-box; font-size:1.5rem; color:#888; border-bottom:1px solid #eee;}
+.growth-speed .growth-speed-tit a
+{float:right; display:block; font-size:1.2rem; color:#888;}
+.growth-speed .growth-speed-tit a i
+{font-size:1.4rem;}
+
+.growth-record
+{width:100%; box-sizing:border-box; margin-top:.8rem; border-bottom:1px solid #eee; border-top:1px solid #eee; background:#fff;}
+.growth-record-tit
+{width:100%; padding:1rem; box-sizing:border-box; font-size:1.5rem; color:#888; border-bottom:1px solid #eee;}
+.growth-record-list
+{width:100%; padding:0 1rem; box-sizing:border-box; overflow:hidden;}
+.user-wallet-detail .growth-record-list li
+{padding:1rem 0;}
+
+/* -- 我的资料 -- */
+.my-setting
+{background:#fff; margin-bottom:.8rem;}
+.my-setting .s-user-top .s-user-right
+{color:#777; text-align:right; margin-top:.3rem; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; font-size:1.5rem;}
+.user-head-img-box-1 img
+{width:4.5rem;height:4.5rem;border-radius:2.5rem;border:2px solid #eee;}
+.s-user-img
+{line-height:5.2rem;}
+.s-xian-box
+{border-bottom:1px solid #F6F6F9;}
+.s-user-top-1
+{padding:1.3rem 0}
+.s-user-top
+{padding:0 1.3rem;position: relative;}
+.jian-top-1
+{position:absolute;top:1.5rem;}
+.user-bg-box-1,.user-bg2-box-1
+{position: absolute;width: 3.8rem;}
+.user-bg-box-1 
+{right: 0;top: 1rem;}
+.user-bg2-box-1
+{bottom:0;left:1rem;}
+.user-head-img-box-1 img
+{display:inline;}
+.updata-top
+{padding-top:3rem;}
+.g-s-i-title-3 .active
+{color:#3fc6ff;}
+.g-s-i-title-3 .sex-nv.active
+{color:#f36ab7;}
+.my-sex-size
+{font-size:6.5rem;}
+.g-s-i-title-3
+{padding: 2.8rem 0;}
+.sex-default-color a
+{color:#b2b2b2;position:relative;}
+.sex-default-color input
+{position: absolute;top: -4.5rem;left: -16%;width: 9rem;height: 12rem;opacity:0}
+/*修改用户名*/
+.my-sex-box .flow-consignee
+{padding:2rem 1.3rem;}
+.a-bg-box
+{position:fixed;width: 100%;background: #fff;z-index: 5;top: 0;right: -110%; bottom: 0;-moz-transition: 0.5s ease;-o-transition: 0.5s ease;-webkit-transition:0.5s ease;}
+.a-bg-box.current
+{right:0%;box-sizing:border-box;}
+.my-sex-box
+{position:fixed;width: 100%;background: #fff;z-index: 5;top: 0;right: -110%; bottom: 0;-moz-transition: 0.5s ease;-o-transition: 0.5s ease;-webkit-transition:0.5s ease;}
+.my-sex-box.current
+{right:0%;box-sizing:border-box;}
+.my-sex-box .flow-consignee ul
+{text-align:center;}
+
+/* -- 其他 -- */
+.fans-bar
+{width:100%; padding:1rem; box-sizing:border-box; background:#fff; margin-bottom:.8rem; font-size:1.5rem;}
+.fans-bar i
+{color:#EC5151; font-size:1.7rem;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

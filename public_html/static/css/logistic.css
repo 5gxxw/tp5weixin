@@ -1,0 +1,138 @@
+a.proBox{
+    display: block;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+a.proBox> dl.pro{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 10px 2%;
+    background: #FFF;
+    border-top: 1px #F0F0F0 solid;
+}
+a.proBox> dl.pro > dt{
+    float: left;
+    height: 60px;
+    width: 60px;
+    overflow: hidden;
+}
+a.proBox> dl.pro > dt img{
+    width: 100%;
+    height: 100%;
+}
+a.proBox> dl.pro > dd{
+    margin-left: 70px;
+    overflow: hidden;
+    height: 20px;
+    line-height: 20px;
+}
+a.proBox> dl.pro > dd.tel span{
+    color: #E90327;
+}
+.logisticsFollow{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    background: #FFF;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0 2%;
+    margin-top: 5px;
+}
+.logisticsFollow > p.caption{
+    width: 100%;
+    height:40px;
+    overflow: hidden;
+    border-bottom: 1px #E5E5E5 solid;
+}
+.logisticsFollow > p.caption > span{
+    float: left;
+    width: 4px;
+    height: 20px;
+    margin-top: 10px;
+    background: #E90327;
+}
+.logisticsFollow > p.caption > label{
+    float: left;
+    margin-left: 6px;
+    height: 40px;
+    line-height: 40px;
+}
+.logisticsFollow > ul.followBox{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+.logisticsFollow > ul.followBox > li{
+    width: 100%;
+    height: 60px;
+    padding: 10px 0;
+}
+.logisticsFollow > ul.followBox > li > dl{
+    width: 100%;
+    height: 60px;
+}
+.logisticsFollow > ul.followBox > li > dl > dt{
+    float: left;
+    height: 60px;
+    width: 50px;
+}
+.logisticsFollow > ul.followBox > li > dl > dt > span{
+    display: block;
+    width: 16px;
+    height: 16px;
+    border-radius: 16px;
+    background: #E5E5E5;
+    margin: 22px auto;
+    position: relative;
+}
+.logisticsFollow > ul.followBox > li > dl > dt > span >em{
+    position: absolute;
+    display: block;
+    width: 12px;
+    height: 12px;
+    border-radius: 12px;
+    top: 2px;
+    left: 2px;
+    background: #999;
+}
+.logisticsFollow > ul.followBox > li > dl > dt > span >label{
+    width: 1px;
+    height: 70px;
+    position: absolute;
+    left: 8px;
+    top: 14px;
+    background: #999;
+}
+.logisticsFollow > ul.followBox > li > dl > dd{
+    margin-left: 50px;
+    overflow: hidden;
+}
+.logisticsFollow > ul.followBox > li > dl > dd.address{
+    height: 30px;
+    line-height: 15px;
+    overflow: hidden;
+    font-size: 12px;
+}
+.logisticsFollow > ul.followBox > li > dl > dd.time{
+    height: 30px;
+    line-height: 30px;
+    font-size: 12px;
+    color: #999;
+    border-bottom: 1px #F1F1F1 solid;
+}
+.logisticsFollow > ul.followBox > li.current > dl > dt > span{
+    background: #FBCDD4;
+}
+.logisticsFollow > ul.followBox > li.current> dl > dt > span >em{
+    background: #E90327;
+}
+.logisticsFollow > ul.followBox > li.current > dl > dd.address{
+    color: #E90327;
+}

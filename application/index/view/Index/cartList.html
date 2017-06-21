@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="description" content="微分销系统" />
+    <meta name="keywords" content="微分销系统" />
+    <title>微分销系统_多享出品</title>
+    
+    <!---------------公共部分--------------->
+    <link rel="stylesheet" type="text/css" href="__ROOT__/static/css/common.css" />
+	<link rel="stylesheet" type="text/css" href="__ROOT__/static/css/main.css" />
+	<link rel="stylesheet" type="text/css" href="__ROOT__/static/css/swiper-3.2.5.min.css" />
+	<link rel="stylesheet" type="text/css" href="__ROOT__/static/css/zyUpload.css" />
+	<link rel="styleSheet" type="text/css" href="__ROOT__/static/css/layer.css" id="layermcss">
+	
+    <script type="text/javascript" src="__ROOT__/static/js/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript" src="__ROOT__/static/js/swiper-3.2.5.min.js"></script>
+	<script type="text/javascript" src="__ROOT__/static/js/layer.js"></script>
+    <script type="text/javascript" src="__ROOT__/static/js/ectouch.js"></script>
+    <script type="text/javascript" src="__ROOT__/static/js/jquery-ui-1.10.1.custom.min.js "></script>
+    <script type="text/javascript" src="__ROOT__/static/js/jquery.ui.touch-punch.min.js "></script>
+    <script type="text/javascript" src="__ROOT__/static/js/jquery.infinite.js"></script>
+    <script type="text/javascript" src="__ROOT__/static/js/template.js"></script>	
+</head>
+
+<body class="">
+
+	<!-- 头部 -->
+	<header class="header-menu dis-box">
+    	<a href="javascript:history.go(-1);"><i class="iconfont">&#xe636;</i></a>
+        <h3>购物车</h3>
+        <a href="{:url('index')}"><i class="iconfont">&#xe621;</i></a>
+    </header>
+    
+    <!-- 主题内容 -->
+	<div class="main">
+		<div class="flow-cart blur-div">
+			<section class="flow-have-cart select-three j-select-all">
+				<section class="j-cart-get-i-more">
+					<div class="product-list-small">
+						<ul>
+							{volist name="result" id="vo"}
+							<li>
+								<div class="dis-box">
+									<!-- 选择 -->
+									<input type="hidden" class="total" price="{$vo.price}" number="{$vo.num}">
+									<div class="ect-select">
+										<label class="rec-active active" goods-id="{$vo.goods_id}" rec-id="{$vo.cart_id}">
+											<i class="j-select-btn"></i>
+										</label>
+									</div>
+									
+									<!-- 商品信息 -->
+									<div class="box-flex">
+
+
+										<div class="product-div">
+											<div class="p-d-img fl">
+												<a href="#"><img src="__ROOT__/static/images/{$vo.logo}" class="product-list-img"></a>
+											</div>
+											<div class="product-text">
+												<h4 class="onelist-hidden"><a href="#">{$vo.name}</a></h4>
+												<span class="t-first">¥{$vo.price}</span>
+												<div class="div-num dis-box">
+													<a class="num-up" data-min-num="1"></a>
+													<input class="box-flex cart-number active" type="text" name="num" value="{$vo.num}" id="cart-num" cart-id="{$vo.cart_id}">
+													<a class="num-next" xiangounum="" data-max-num="999"></a>
+												</div>
+												<i class="iconfont icon-xiao10" onclick="DropCart({$vo['cart_id']},this)">&#xe665;</i>
+											</div>
+										</div>
+									</div>
+								</div>
+
+							</li>
+							{/volist}
+						</ul>
+					</div>
+				</section>
+			</section>
+		</div>
+		
+		<!-- 没有数据的样式 -->
+		{empty name="result"}
+		<div class="no-div-message">
+			<i class="iconfont icon-biaoqingleiben">&#xe676;</i>
+			<p>亲，购物车什么都没有～！</p>
+		</div>
+		{/empty}
+		
+	</div>
+	
+	<!-- 结算 --->
+	<section class="filter-btn f-cart-filter-btn dis-box">
+		<div class="box-flex select-three j-cart-get-more j-get-more-all">
+			<div class="ect-select">
+				<label class="dis-box label-all active">
+					<i class="select-btn"></i>
+					<span class="box-flex">全选</span>
+				</label>
+			</div>
+			<div class="g-cart-filter-price of-hidden">
+				<p class="dis-box"><em class="dis-block">合计：</em>
+				  <span class="t-first box-flex onelist-hidden cart-price-show">¥0.00</span>
+				</p>
+				<p class="t-remark">不含运费</p>
+			</div>
+		</div>
+		
+		<div class="g-cart-filter-sb">
+			<form id="formid" action="{:url('orderAdd')}" class="fl" method="post">
+				<input type="hidden" name="cart_value" value="">
+				<a type="button" class="btn-submit fl" onclick="c_value()">去结算</a>
+			</form>
+		</div>
+	</section>
+	
+</body>
+<script>
+	function c_value(){
+		var id='';
+		$("label").each(function (){
+			if($(this).hasClass("rec-active")){
+				if($(this).hasClass("active")) {
+					id += $(this).attr("rec-id") + ',';
+				}
+			}
+		 })
+		if(id==''){
+			d_messages('至少选中一个商品', 2);
+			return false;
+		}
+		id = id.substr(0,id.length-1);
+		$("input[name=cart_value]").val(id);
+		document.getElementById("formid").submit();
+	}
+
+	/*计算总金额*/
+	function total_price(){
+		var price = 0;
+		 var k = 0;
+		 //计算总金额
+		 $(".total").each(function(){
+				 price  += $(this).attr("price")*$(this).attr("number");
+
+		 })
+		 //显示总金额
+		$(".cart-price-show").text('￥'+price.toFixed(2));
+	}
+
+	/* 加载页面后显示总金额 */
+	$(function(){
+		total_price();
+	})
+
+	/*删除*/
+	function DropCart(id,obj){
+		$.post("{:url('cartDel')}",{'id':id}, function (data) {
+			if(data.code == 1){
+				//删除节点
+				$(obj).closest('li').remove();
+				//重置总金额
+				total_price();
+				d_messages('已删除');
+			}else{
+				d_messages('删除失败');
+			}
+		});
+	 }
+
+	/* 数量减1 */
+	$(".num-up").click(function(){
+		//判断数量是否小于等于1
+		num = parseInt($(this).siblings("input").val());//当前数量
+		min_num = parseInt($(this).attr("data-min-num"));//最小数量
+		cart_id = parseInt($(this).siblings("input").attr("cart-id"));//购物车id
+		obj = $(this);//当前节点对象
+		if (num > min_num) {
+
+			$.ajax({
+				type: "POST",
+				url: "{:url('change_num')}",
+				dataType:"json",
+				data: {cart_id:cart_id,num:num-1},
+				success: function(data){
+					if(data.code == 1){
+						//保存数量
+						$("#cart-num").val(num-1);
+						obj.closest("li").find(".total").attr("number",num-1);
+						//改变总价
+						total_price();
+					}else{
+						d_messages("修改数量失败!");
+					}
+				}
+			});
+		}else{
+			d_messages("不能小于最小数量");
+		}
+	});
+
+	/* 数量加1 */
+	$(".num-next").click(function(){
+		//判断数量是否小于等于1
+		num = parseInt($(this).siblings("input").val());//当前数量
+		max_num = parseInt($(this).attr("data-max-num"));//最大数量
+		cart_id = parseInt($(this).siblings("input").attr("cart-id"));//购物车id
+		obj = $(this);//当前节点对象
+		if (num < max_num) {
+			$(this).siblings("input").val(num);
+			$.ajax({
+				type: "POST",
+				url: "{:url('change_num')}",
+				dataType:"json",
+				data: {cart_id:cart_id,num:num+1},
+				success: function(data){
+					if(data.code == 1){
+						//保存数量
+						$("#cart-num").val(num+1);
+						obj.closest("li").find(".total").attr("number",num+1);
+						//改变总价
+						total_price();
+					}else{
+						d_messages("修改数量失败!");
+					}
+				}
+			});
+		}else{
+			d_messages("不能小于最小数量");
+		}
+	});
+
+	/* 输入数量 */
+	$(".cart-number").blur(function(){
+		num = $(this).val();//当前数量
+		min_num = $(this).siblings("a").attr("data-min-num");//最小数量
+		max_num = $(".num-next").attr("data-max-num");//最大数量
+		console.log(max_num);
+		cart_id = parseInt($(this).attr("cart-id"));//购物车id
+		obj = $(this);//当前节点对象
+		if (num >= min_num && num <=max_num) {
+			$.ajax({
+				type : 'POST',
+				url : "{:url('change_num')}",
+				dataType:"json",
+				data: {'cart_id':cart_id,'num':num},
+				success: function(data){
+					if(data.code == 1){
+						//保存数量
+						obj.closest("li").find(".total").attr("number",num);
+
+						//改变总价
+						total_price();
+						d_messages("修改数量成功!");
+					}else{
+						d_messages("修改数量失败!");
+					}
+				}
+			});
+		}else{
+			d_messages("不能小于最小数量");
+		}
+	});
+
+
+	/*多选*/
+	$(".j-cart-get-more .ect-select").click(function() {
+		if (!$(this).find("label").hasClass("active")) {
+			$(this).find("label").addClass("active");
+			$("input[name=cart_number]").addClass("active");
+
+			if ($(this).find("label").hasClass("label-all")) {
+				$(".j-select-all").find(".ect-select label").addClass("active");
+				/*hu*/
+				var rec_id = '';
+				$(".rec-active").each(function(){
+					var goods_id = $(this).attr("goods-id");
+					if ($(this).hasClass("active")) {
+	
+						if($(this).attr("rec-id")!=undefined && $(this).attr("rec-id")>0){
+							rec_id+=$(this).attr("rec-id")+',';
+							$("#"+goods_id+"").addClass("active");
+						}
+					}
+				});
+				$.ajax({
+					type: "POST",
+					url: "{:url('order_all')}",
+					data: {id:rec_id},
+					dataType:"json",
+					success: function(data){
+						$(".cart-number-show").text(data.cart_number);
+						$(".cart-price-show") .text(data.content);
+	
+					}});
+			}
+		} else {
+			$(this).find("label").removeClass("active");
+			$("input[name=cart_number]").removeClass("active");
+			if ($(this).find("label").hasClass("label-all")) {
+				/*hu*/
+				$(".cart-price-show").text("￥0.00");
+				$(".cart-number-show").text(0);
+				/*hu*/
+				$(".j-select-all").find(".ect-select label").removeClass("active");
+			}
+		}
+	});
+	/*多选只点击单选按钮 - 全选，全不选*/
+	$(".j-cart-get-i-more .j-select-btn").click(function() {
+		if ($(this).parents(".ect-select").hasClass("j-flowcoupon-select-disab")) {
+			d_messages("同商家只能选择一个", 2);
+		} else {
+			is_select_all = true;
+			if ($(this).parent("label").hasClass("label-this-all")) {
+				if (!$(this).parent("label").hasClass("active")) {
+					$(this).parents(".j-cart-get-i-more").find(".ect-select label").addClass("active");
+				} else {
+					$(this).parents(".j-cart-get-i-more").find(".ect-select label").removeClass("active");
+				}
+			}
+	
+			if (!$(this).parent("label").hasClass("label-this-all") && !$(this).parent("label").hasClass("label-all")) {
+				$(this).parent("label").toggleClass("active");
+				is_select_this_all = true;
+				select_this_all = $(this).parents(".j-cart-get-i-more").find(".ect-select label").not(".label-this-all");
+	
+				select_this_all.each(function() {
+					if (!$(this).hasClass("active")) {
+						is_select_this_all = false;
+						return false;
+					}
+				})
+				if (is_select_this_all) {
+					$(this).parents(".j-cart-get-i-more").find(".label-this-all").addClass("active");
+				} else {
+					$(this).parents(".j-cart-get-i-more").find(".label-this-all").removeClass("active");
+				}
+			}
+	
+			var select_all = $(".j-select-all").find(".ect-select label");
+			select_all.each(function() {
+				if (!$(this).hasClass("active")) {
+					is_select_all = false;
+					return false;
+				}
+			});
+			if (is_select_all) {
+				$(".label-all").addClass("active");
+			} else {
+				$(".label-all").removeClass("active");
+			}
+		}
+		/*hu*/
+		var rec_id = '';
+		$(".rec-active").each(function(){
+			var goods_id = $(this).attr("goods-id");
+			if ($(this).hasClass("active")) {
+	
+				if($(this).attr("rec-id")!=undefined && $(this).attr("rec-id")>0){
+					rec_id+=$(this).attr("rec-id")+',';
+					$("#"+goods_id+"").addClass("active");
+				}
+			}else{
+				$("#"+goods_id+"").removeClass("active");
+			}
+		});
+		$.ajax({
+			type: "POST",
+			url: "index/cart_label_count",
+			data: {id:rec_id},
+			dataType:"json",
+			success: function(data){
+				$(".cart-number-show").text(data.cart_number);
+				$(".cart-price-show") .text(data.content);
+				$(".cart-price-hidden") .text(data.content);
+	
+			}});
+		/*hu*/
+	});
+</script>
+</html>

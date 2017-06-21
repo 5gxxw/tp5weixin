@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="description" content="微分销系统" />
+    <meta name="keywords" content="微分销系统" />
+    <title>微分销系统_多享出品</title>
+    
+    <!---------------公共部分--------------->
+    <link rel="stylesheet" type="text/css" href="__ROOT__/static/css/common.css" />
+	<link rel="stylesheet" type="text/css" href="__ROOT__/static/css/main.css" />
+	<link rel="stylesheet" type="text/css" href="__ROOT__/static/css/swiper-3.2.5.min.css" />
+	<link rel="stylesheet" type="text/css" href="__ROOT__/static/css/zyUpload.css" />
+	<link rel="styleSheet" type="text/css" href="__ROOT__/static/css/layer.css" id="layermcss">
+	
+    <script type="text/javascript" src="__ROOT__/static/js/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript" src="__ROOT__/static/js/swiper-3.2.5.min.js"></script>
+	<script type="text/javascript" src="__ROOT__/static/js/layer.js"></script>
+    <script type="text/javascript" src="__ROOT__/static/js/ectouch.js"></script>
+    <script type="text/javascript" src="__ROOT__/static/js/jquery-ui-1.10.1.custom.min.js "></script>
+    <script type="text/javascript" src="__ROOT__/static/js/jquery.ui.touch-punch.min.js "></script>
+    <script type="text/javascript" src="__ROOT__/static/js/jquery.infinite.js"></script>
+    <script type="text/javascript" src="__ROOT__/static/js/template.js"></script>	
+</head>
+
+<body class="">
+
+	<!-- 头部 -->
+	<header class="header-menu dis-box">
+    	<a href="javascript:history.go(-1);"><i class="iconfont">&#xe636;</i></a>
+        <h3>填写订单</h3>
+        <a href="{:url('index')}"><i class="iconfont">&#xe621;</i></a>
+    </header>
+    
+    <!-- 主题内容 -->
+	<div class="main">
+		<form action="{:url('order')}" method="post" name="theForm" id="theForm" onsubmit="return checkOrderForm(this)">
+			<div class="flow-checkout">
+			
+				<!-- 收货地址 -->
+				<section class="flow-checkout-adr">
+					<a href="{:url('address')}"></a>
+					<div class="flow-have-adr">
+                    	<p class="f-h-adr-title ">{$address.name} &nbsp; {$address.tel}</p>
+                    	<p class="f-h-adr-con t-remark">{$address.province}&nbsp;{$address.city}&nbsp;{$address.area} {$address.particular}</p>
+                	</div>
+					<span class="t-jiantou"><i class="iconfont icon-jiantou">&#xe664;</i></span>
+				</section>
+				
+				<section class="m-top10">
+					<!-- 商品信息 -->
+					<section class="flow-checkout-pro j-flow-checkout-pro active">
+						<div class="product-list-small m-top1px dis-box">
+							<ul class="box-flex flow-checkout-bigpic">
+								{volist name="result" id="vo"}
+								<li>
+									<div class="product-div">
+										<a class="product-div-link" href="#"></a>
+										<img class="product-list-img" src="__ROOT__/static/images/{$vo.logo}">
+										<div class="product-text">
+											<h4>{$vo.name}</h4>
+											<p><span class="p-price t-first ">¥{$vo.price}
+												<small class="fr t-remark">x{$vo.num}</small>
+											</span></p>
+									  </div>
+									</div>
+								</li>
+								{/volist}
+							</ul>
+						</div>
+                	</section>
+					
+					<!-- 买家留言 -->
+					<section class="flow-checkout-select">
+						<ul>
+							<li class="f-c-select-msg">
+								<label class="t-remark g-t-temark">买家留言<span class="t-remark">（50字）</span></label>
+								<div class="text-area1 m-top04">
+                                	<textarea name="guestbook" class="text-area1" maxlength="50" placeholder="选填"></textarea>
+									<span>50</span>
+                            	</div>
+							</li>
+						</ul>
+						<p class="f-c-select-price text-right t-remark">
+							共 {$other['goods_num']} 件商品，合计：<span class="t-first">¥{$other.count}</span>
+						</p>
+					</section>
+				</section>
+				
+				<!-- 支付方式 -->
+				<section class="m-top10">
+					<ul>
+						<li class="dis-box m-top1px j-show-div padding-all b-color-f" id="payment">
+							<label class="t-remark g-t-temark">支付方式</label>
+							
+						</li>
+						
+					</ul>
+				</section>
+
+				<!-- 地址ID-->
+				<input type="hidden" name="address_id" value="{$address.id}">
+
+				<input type="submit" value="提交订单">
+			</div>
+		</form>
+	</div>
+</body>
+</html>
