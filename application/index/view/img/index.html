@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scaleable=no">
+    <meta name="format-detection" content="telephone=no">
+    <link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+	<title>{$data.title}</title>
+</head>
+<body>
+	<div class="container">
+		
+		<header>
+			<h3>{$data.title}</h3>
+			<p><span>{$data.update_time|date='Y-m-d',###}</span><span class="pull-right">阅读{$click}</span></p>
+		</header>
+		<section class="content">
+			{if $data.showpic == 1}
+			<div>
+				<img src="{$data.pic}" alt="" class="img-responsive img-thumbnail center-block">
+			</div>
+			{/if}
+			{$data.info}
+		</section>
+	</div>
+</body>
+</html>
